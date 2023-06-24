@@ -22,7 +22,6 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
         paddingHorizontal: 10,
         color: '#212121',
-        borderColor: '#212121',
         fontSize: 14,
 
     }
