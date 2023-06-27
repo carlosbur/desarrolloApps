@@ -4,6 +4,12 @@ import { useState } from 'react';
 
 
 export default function App() {
+
+
+  const [task, setTask] = useState('')
+
+  const [tasks, setTasks] = useState([])
+
   const [borderColor, setBorderColor] = useState('#C5C9E7')
 
   const onHandlerFocus = () => {
@@ -12,6 +18,21 @@ export default function App() {
 
   const onHandlerBlur = () => {
     setBorderColor('#C5C9E7')
+  }
+
+  const onHandrleChangeText = (text) =>{
+    setTask(text)
+  }
+
+  const onHandleCreateTask = () =>{
+    setTasks([
+      ...tasks,
+      {
+        id: Date.now().toString(),
+        value: task
+      }
+    ])
+    setTask('')
   }
 
   return (
@@ -28,8 +49,20 @@ export default function App() {
         placeholderTextColor={"#8C94CF"}
         onFocus={onHandlerFocus}
         onBlur={onHandlerBlur}
+        onChangeText={onHandrleChangeText}
+        value={task}
         />
-        <Button title='Agregar' color={'#424D9E'}></Button>
+        <Button disabled={task.length == 0} title='Agregar' color={'#424D9E'} onPress={onHandleCreateTask}></Button>
+      </View>
+      <View style={styles.listContainer}>
+      {
+        tasks.map((item) => (
+          <View style={styles.containerItem} key={item.id}>
+            <Text style={styles.listItem}>{item.value} </Text>
+          </View>
+        ))
+
+      }
       </View>
     </View>
     </SafeAreaView>
