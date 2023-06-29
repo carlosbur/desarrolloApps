@@ -1,4 +1,4 @@
-import { StyleSheet, StatusBar } from "react-native";
+import { StyleSheet, StatusBar, RootTagContext } from "react-native";
 
 export const styles = StyleSheet.create({
     safeArea: {
@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
     },
     listContainer:{
         marginTop: 25,
-        gap: 15,
+
     },
 
     containerItem:{
@@ -46,7 +46,48 @@ export const styles = StyleSheet.create({
         },
         shadowOpacity: 0.22,
         shadowRadius: 2.22,
-        marginBottom: 15,
         elevation: 3,
-    }
+    },
+    list:{
+        gap: 15,
+        paddingBottom: 10,
+    },
+    icon:{
+        color: "red",
+        fontSize: 16,
+    },
+
+    modalContainer:{
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 60,
+        paddingVertical: 20,
+    },
+    modalTitle:{
+        fontSize: 18,
+        fontWeight: "bold",
+        marginBottom: 10,
+    },
+    modalDetailContainer:{
+        paddingVertical: 20
+    },
+    modalDetailMessage:{
+        fontSize: 14,
+        color: '#212121'
+    },
+    selectedTask:{
+        fontSize: 14,
+        color: '#212121',
+        fontWeight: "bold",
+        textAlign: "center",
+        paddingVertical: 10,
+
+    },
+    modalButtonContainer:{
+        flexDirection: "row",
+        width: '100%',
+        justifyContent: "space-around",
+        marginHorizontal: 20,
+
+    },
 });
