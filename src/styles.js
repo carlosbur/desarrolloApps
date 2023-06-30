@@ -10,8 +10,4 @@ export const styles = StyleSheet.create({
     marginHorizontal: 20,
     paddingTop: StatusBar.currentHeight,
   },
-
-  listContainer: {
-    marginTop: 25,
-  },
 });

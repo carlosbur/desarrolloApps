@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Modal, Text, View, Button, SafeAreaView, FlatList } from "react-native";
+import { View, SafeAreaView } from "react-native";
 
-import { InputTask, TaskItem } from "./components";
+import { InputTask, TaskItem, Lista } from "./components";
 import PopUp from "./components/modal/modal";
 import { styles } from "./styles";
 
@@ -62,16 +62,8 @@ export default function App() {
           onHandlerFocus={onHandlerFocus}
           task={task}
         />
-        <View>
-          <FlatList
-            data={tasks}
-            renderItem={renderItem}
-            style={styles.listContainer}
-            contentContainerStyle={styles.list}
-            alwaysBounceVertical
-            keyExtractor={(item) => item.id}
-          />
-        </View>
+        <View />
+        <Lista renderItem={renderItem} tasks={tasks} />
       </View>
       <PopUp
         isVisible={isVisible}
