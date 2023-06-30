@@ -1,16 +1,8 @@
 import { useState } from "react";
-import {
-  Modal,
-  Text,
-  View,
-  TextInput,
-  Button,
-  SafeAreaView,
-  FlatList,
-  TouchableOpacity,
-} from "react-native";
+import { Modal, Text, View, Button, SafeAreaView, FlatList } from "react-native";
 
 import { InputTask, TaskItem } from "./components";
+import PopUp from "./components/modal/modal";
 import { styles } from "./styles";
 
 export default function App() {
@@ -81,19 +73,12 @@ export default function App() {
           />
         </View>
       </View>
-      <Modal visible={isVisible} animationType="slide">
-        <View style={styles.modalContainer}>
-          <Text style={styles.modalTitle}>Task Detail</Text>
-          <View style={styles.modalDetailContainer}>
-            <Text style={styles.modalDetailMessage}>Are you sure to delete item?</Text>
-            <Text style={styles.selectedTask}>{selectedTask?.value}</Text>
-          </View>
-          <View style={styles.modalButtonContainer}>
-            <Button title="Cancel" color="#424D9E" onPress={() => setIsVisible(false)} />
-            <Button title="Delete" color="red" onPress={() => onHandleDelete(selectedTask?.id)} />
-          </View>
-        </View>
-      </Modal>
+      <PopUp
+        isVisible={isVisible}
+        onHandleDelete={onHandleDelete}
+        selectedTask={selectedTask}
+        setIsVisible={setIsVisible}
+      />
     </SafeAreaView>
   );
 }
